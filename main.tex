@@ -1,0 +1,167 @@
+% Prácticas de Estadística para el GII de la UGR, una aproximación con Python
+% José David Rico Días
+% Bajo Licencia Creative Commons 3.0 (BY-NC-SA)
+
+
+% CONSIDERACIONES SI NO USAS OVERLEAF   %
+% Compilación : XeLaTex                 %
+% Lista de paquetes:                    %
+%   -   fontspec                        %
+%   -   hyperref                        %
+%   -                               %
+%   -                               %
+%   -                               %
+%   -                               %
+
+% Configuración de la clase book %
+%------------------------------------------------------------------------------%
+
+\documentclass[openany,a4paper]{book}
+
+% Indenta con números hasta 4 %
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+% Paquetes %
+%------------------------------------------------------------------------------%
+
+% Uso de fuentes especiales %
+\usepackage{fontspec}
+% Configuración de la fuente % Se usa la fuente San Francisco; la que usa Apple %
+\setmainfont[
+Path=./fonts/,      % Directorio de las fuentes %
+BoldFont=SF-Bold.otf,
+ItalicFont=SF-Italic.otf,
+BoldItalicFont=SF-Bold-Italic.otf
+]{SF.otf}
+
+% Permite hipervínculos en el PDF, lo que facilita la navegación %
+\usepackage[breaklinks=true,hidelinks]{hyperref}
+
+% Gráficos % Insertar imágenes %
+\usepackage{graphicx}
+
+% Ajuste de márgenes. Optimizado para lectura en ordenador %
+\usepackage[papersize={210mm,297mm},lmargin=2cm,rmargin=2cm,top=2cm,bottom=2cm,headsep=3mm]{geometry}
+% Con esta configuración conseguimos que el PDF se pueda leer en un e-book. %
+% Puede que no sea una feature muy interesante.                             %
+%
+%       \usepackage[papersize={95mm,125mm},lmargin=1.5mm,rmargin=1.5mm,top=7mm,bottom=1.5mm,headsep=3mm]{geometry}
+
+% Idioma %
+\usepackage[spanish]{babel}
+
+% Introducir código de python %
+\usepackage{listings}       %PARA EJEMPLOS DE CÓDIGO%
+\usepackage{xcolor}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{white},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=3pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=1
+}
+
+\lstset{style=mystyle}
+% Comandos propios %
+%------------------------------------------------------------------------------%
+
+% Script para la creación de citas a un personaje %
+\newcommand{\chapquote}[3]{\begin{quotation} \textit{#1} \end{quotation} \begin{flushright} - #2, \textit{#3}\end{flushright} } 
+
+%------------------------------------------------------------------------------%
+
+\begin{document}
+ 
+\begin{titlepage}
+	\begin{center}		
+		\vspace*{1.0cm}
+		\begin{Huge}
+			\textbf{Prácticas de estadística para el GII UGR, una aproximación con Python}\\
+		\end{Huge}	
+		\vspace*{1.0cm}
+		\rule{150mm}{0.1mm}\\
+		
+		\vspace*{1.5cm}
+		\begin{figure}[htb]
+			\begin{center}
+				\includegraphics[width=9cm]{images/logotypes/Logo UGR.png}
+			\end{center}
+		\end{figure}
+        \huge{José David Rico Días}\\
+		\vspace*{1cm}
+	    \Large{\today}
+	\end{center}		
+\end{titlepage}
+
+\thispagestyle{empty}
+
+Este documento está bajo la licencia CC BY-NC-SA. Junto a este documento debes haber recibido una copia de la licencia correspondiente. Si no es así puedes consultar la licencia en el siguiente enlace: \textbf{\href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.es}{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.es}}
+
+This document is under the CC BY-NC-SA license. Among these document you may have received a license's copy. If not, you can read the license in the following link: \textbf{\href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.en}{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.en}}
+
+\newpage
+
+\thispagestyle{empty}
+
+\vspace*{9cm}
+\chapquote{"Python is an experiment in how much freedom programmers need. Too much freedom and nobody can read another's code; too little an expressiveness is endangered."}{Guido von Rossum}{Creador de Python}
+
+
+\chapter*{Motivación}
+
+\thispagestyle{empty}
+
+Durante el inicio del del 2º cuatrimestre, empecé las prácticas de Estadística. Comenzamos aprendiendo el lenguaje de programación R, concretamente R Commander. Yo que ya conocía Python y las famosas bibliotecas SciPy y NumPy, pensé que con la versatilidad que ofrece este maravilloso lenguaje, sería más adecuado para un Ingeniero Informático.
+
+Y así lo hice.
+
+\chapter*{Sobre este manual}
+
+\thispagestyle{empty}
+
+Es recomendable que trabajes con este manual en PDF en el ordenador. Hay links en el texto que permiten ir directamente a las páginas. 
+
+Además, puedes consultar el GitHub con todos los datos y las soluciones a los ejercicios.
+
+\tableofcontents
+
+\newpage
+
+
+\chapter{Introducción}
+
+\setcounter{page}{1}
+
+\section{¿Qué es Python?}
+
+\section{Nuestro entorno de trabajo}
+
+Para las prácticas usaremos un IDE online: \href{https:\\ide.cs50.io}{ide.cs50.io}. Este IDE fue creado por la Universidad de Harvard, permitiendo programar en Python y en C.
+Además proporciona un \textit{sandbox} Linux (Ubuntu concretamente), todas las librerías necesarias y una API para crear tests sobre tus programas.
+
+Debemos registrarnos con una cuenta de \href{https://github.com/}{GitHub}.
+
+
+
+
+
+\chapter{Manos a la obra}
+
+\end{document}
