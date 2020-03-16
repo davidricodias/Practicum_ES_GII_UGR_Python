@@ -12,7 +12,7 @@ Statistics Practicum from Computer Science Degree at Universidad de Granada, rem
   \pagecolor{black}
   \color{white}
   ```
-  This will enable the default option: white background a black text.
+  This will enable the default option: white background and black text.
 
 ## License
 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.en)
