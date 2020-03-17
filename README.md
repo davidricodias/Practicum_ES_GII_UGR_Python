@@ -13,6 +13,8 @@ Statistics Practicum from Computer Science Degree at Universidad de Granada, rem
   \color{white}
   ```
   This will enable the default option: white background and black text.
+- **Q** : How do I compile the LaTex document?
+- **A** : I recommend using [overleaf](https://www.overleaf.com) uploading this repository; it includes all the packages needed and the XeLaTex compiler. However, the packages needed are written at the beggining of `main.tex`, so you can compile on your own.
 
 ## License
 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.en)
